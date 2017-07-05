@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Apache.
+      yum: name={{item}} state=present
+      with_items:
+        - httpd
+        - httpd-devel
+    - name: Make sure Apache is started now and at boot.
+      service: name=httpd state=started enabled=yes
