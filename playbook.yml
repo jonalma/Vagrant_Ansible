@@ -3,10 +3,13 @@
   become: yes
 
   tasks:
-    - name: Install Apache.
+    - name: Install Apache and other services.
       yum: name={{item}} state=present
       with_items:
         - httpd
         - httpd-devel
+        - mlocate
+    - name: Running updatedb
+      command: updatedb
     - name: Make sure Apache is started now and at boot.
       service: name=httpd state=started enabled=yes
