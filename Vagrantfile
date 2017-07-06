@@ -12,10 +12,13 @@ Vagrant.configure("2") do |config|
   config.ssh.username = 'root'
   config.ssh.password = 'vagrant'
 
+  config.vm.define "foohost" do |foohost|
+  end
+
   config.vm.provider "vmware_workstation" do |vmware_workstation|
      vmware_workstation.gui = true
-	 vmware_workstation.whitelist_verified = true
-   end
+     vmware_workstation.whitelist_verified = true
+  end
    
   config.vm.provision "ansible_local" do |ansible|
      ansible.verbose = "v"
