@@ -9,6 +9,8 @@
         - httpd
         - httpd-devel
         - mlocate
+        - bind
+        - bind-utils
     - name: Running updatedb
       command: updatedb
     - name: Make sure Apache is started now and at boot.
